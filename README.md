@@ -22,6 +22,13 @@ Original AI-generated artwork, vendored in this repo as `picture.jpg`.
 the source byte for byte. Stdlib only, no network access, fully
 deterministic — every run writes the exact same bytes.
 
+## How the entry works
+
+1. `main.py` copies the vendored `picture.jpg` to `/output/entry.png`.
+2. It reads the output back and compares it byte for byte with the source.
+3. It parses the JPEG header (stdlib only) and checks the image is 1024x1024.
+Any mismatch or wrong size fails loudly; on success it prints a confirmation line.
+
 ## Run
 
 ```sh
